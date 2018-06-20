@@ -1,17 +1,13 @@
 package simple;
+
+import org.junit.Test;
+import redis.clients.jedis.Response;
+import redis.clients.jedis.ShardedJedisPipeline;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import redis.clients.jedis.Response;
-import redis.clients.jedis.ShardedJedis;
-import redis.clients.jedis.ShardedJedisPipeline;
-import redis.clients.jedis.ShardedJedisPool;
 
 /**
 @author junmeng.xu
@@ -19,16 +15,6 @@ import redis.clients.jedis.ShardedJedisPool;
  */
 public class Main extends BaseTestCase {
 
-	@Autowired
-	public ShardedJedisPool shardedJedisPool;
-	
-	ShardedJedis jedis;
-	
-	@Before
-	public void Before(){
-		jedis = shardedJedisPool.getResource();
-	}
-	
 	/**
 	 * redis存储字符串
 	 */
