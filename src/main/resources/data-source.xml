@@ -27,6 +27,7 @@
 					<constructor-arg name="timeout" value="${redis.timeout}"/>
 					<constructor-arg name="weight" value="1"/>
 					<constructor-arg name="name" value="xxx"/>
+					<property name="password" value="${redis.password}"/>
 				</bean>
 			</list>
 		</constructor-arg>
