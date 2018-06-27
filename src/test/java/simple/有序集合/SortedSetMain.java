@@ -6,6 +6,11 @@ import simple.BaseTestCase;
 import java.util.Set;
 
 /**
+ * Redis ZRANGE命令返回存储在关键的排序元素集合在指定的范围。
+ * 该元素被认为是从最低到最高的分值进行排序。
+ * 字典顺序用于以相等的分数的元素。
+ * 两个开始和停止是从零开始的索引，其中0是第一个元素，1是下一个元素等等。
+ * 它们也可以是表示偏移量从有序集的尾部，以-1作为排序的集合的最后一个元素，-2倒数第二元素等负数。
  * @author james
  * @date 2018/6/20
  */
@@ -26,6 +31,12 @@ public class SortedSetMain extends BaseTestCase {
     @Test
     public void test3() {
         Set<String> fruit = jedis.zrange("fruit", 0, -1);
+        System.out.println(fruit);
+    }
+
+    @Test
+    public void test4() {
+        Set<String> fruit = jedis.zrange("fruit", 0, -2);
         System.out.println(fruit);
     }
 
