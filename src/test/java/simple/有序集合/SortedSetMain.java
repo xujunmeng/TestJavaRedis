@@ -36,7 +36,7 @@ public class SortedSetMain extends BaseTestCase {
 
     @Test
     public void test4() {
-        Set<String> fruit = jedis.zrange("fruit", 0, -2);
+        Set<String> fruit = jedis.zrange("fruit", 0, 0);
         System.out.println(fruit);
     }
 
