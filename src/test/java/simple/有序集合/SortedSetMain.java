@@ -3,6 +3,8 @@ package simple.有序集合;
 import org.junit.Test;
 import simple.BaseTestCase;
 
+import java.util.Set;
+
 /**
  * @author james
  * @date 2018/6/20
@@ -19,6 +21,12 @@ public class SortedSetMain extends BaseTestCase {
         jedis.zadd("fruit", 10.0, "lemon");
         jedis.zadd("fruit", 7.0, "cherry");
         System.out.println(zadd);
+    }
+
+    @Test
+    public void test3() {
+        Set<String> fruit = jedis.zrange("fruit", 0, -1);
+        System.out.println(fruit);
     }
 
     @Test
