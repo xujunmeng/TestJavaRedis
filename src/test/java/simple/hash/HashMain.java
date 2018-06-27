@@ -24,6 +24,12 @@ public class HashMain extends BaseTestCase {
     }
 
     @Test
+    public void test3() {
+        String hget = jedis.hget("hash", "key1");
+        System.out.println(hget);
+    }
+
+    @Test
     public void test2() {
         Boolean hexists = jedis.hexists("hash", "key0");
         System.out.println(hexists);
