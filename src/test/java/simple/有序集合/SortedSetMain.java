@@ -50,4 +50,10 @@ public class SortedSetMain extends BaseTestCase {
         System.out.println("zrevrank fruit grape=" + jedis.zrevrank("fruit", "grape"));
     }
 
+    @Test
+    public void test6() {
+        Set<String> zrange = jedis.zrange("ITEM_PRICE_(2074)", 0, 0);
+        System.out.println(zrange);
+    }
+
 }

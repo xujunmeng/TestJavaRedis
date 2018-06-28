@@ -37,4 +37,11 @@ public class HashMain extends BaseTestCase {
 
     }
 
+    @Test
+    public void test4() {
+        //哈希表key中的域field的值设为value。
+        jedis.hset("key1", "field1", "field1-value");
+        jedis.hset("key1", "field2", "field2-value");
+    }
+
 }

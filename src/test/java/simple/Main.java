@@ -56,15 +56,10 @@ public class Main extends BaseTestCase {
 	@Test
 	public void test5(){
 		Set<String> hkeys = jedis.hkeys("user");
-		for (String str : hkeys) {
-			System.out.println(str);
-			
-		}
+		System.out.println(hkeys);
+
 		List<String> hvals = jedis.hvals("user");
-		for (String str : hvals) {
-			System.out.println(str);
-			
-		}
+		System.out.println(hvals);
 
 	}
 	@Test
