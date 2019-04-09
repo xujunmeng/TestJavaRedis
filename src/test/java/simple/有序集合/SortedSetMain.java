@@ -1,5 +1,6 @@
 package simple.有序集合;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
 import simple.BaseTestCase;
 
@@ -19,13 +20,12 @@ public class SortedSetMain extends BaseTestCase {
     @Test
     public void test() {
         // 向有序集合中加入元素, 成功返回1, 失败返回0
-        Long zadd = jedis.zadd("fruit", 5.0, "apple");
-        jedis.zadd("fruit", 2.0, "banana");
-        jedis.zadd("fruit", 4.0, "orange");
-        jedis.zadd("fruit", 8.0, "grape");
-        jedis.zadd("fruit", 10.0, "lemon");
-        jedis.zadd("fruit", 7.0, "cherry");
-        System.out.println(zadd);
+        jedis.zadd("0:quotation_product:test:fruit", 5.0, "apple");
+        jedis.zadd("0:quotation_product:test:fruit", 2.0, "banana");
+        jedis.zadd("0:quotation_product:test:fruit", 4.0, "orange");
+        jedis.zadd("0:quotation_product:test:fruit", 8.0, "grape");
+        jedis.zadd("0:quotation_product:test:fruit", 10.0, "lemon");
+        jedis.zadd("0:quotation_product:test:fruit", 7.0, "cherry");
     }
 
     @Test
@@ -54,6 +54,28 @@ public class SortedSetMain extends BaseTestCase {
     public void test6() {
         Set<String> zrange = jedis.zrange("ITEM_PRICE_(2074)", 0, 0);
         System.out.println(zrange);
+    }
+
+    @Test
+    public void test23424() {
+        for (int i = 0; i < 10000; i++) {
+            String s = generateUniqueSettleSerialNoPrefix();
+            System.out.println(s);
+        }
+    }
+
+    public String generateUniqueSettleSerialNoPrefix() {
+
+        DateTime now = DateTime.now();
+        String todayStr = now.toString("yyyyMMdd");
+        String key = String.format("settlement:daily:%s:serial:random", todayStr);
+        Long uniqueNum = jedis.incrBy(key, 1);
+        if (uniqueNum == null || uniqueNum < 100) {
+            uniqueNum = jedis.incrBy(todayStr, 100);
+        }
+
+        String todayTimeStr = now.toString("yyyyMMddHHmmss");
+        return "I" + todayTimeStr + uniqueNum;
     }
 
 }
