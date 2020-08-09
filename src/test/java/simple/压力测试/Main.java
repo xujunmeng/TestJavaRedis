@@ -1,12 +1,7 @@
 package simple.压力测试;
 
 import org.junit.Test;
-import org.springframework.core.task.support.ExecutorServiceAdapter;
 import simple.BaseTestCase;
-
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * @author james

@@ -57,7 +57,7 @@ public class ListMain extends BaseTestCase {
     public void test3() {
         //存储数据到列表中
         String key = "list-array";
-        List<String> vals = new ArrayList<>();
+        List<String> vals = new ArrayList<String>();
         vals.add("vvv");
         vals.add("ccc");
         vals.add("www");

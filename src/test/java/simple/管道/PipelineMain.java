@@ -32,7 +32,7 @@ public class PipelineMain extends BaseTestCase {
     }
 
     private static void notusePipeline(Jedis jedis) {
-        Map<String, String> mp = new HashMap<>();
+        Map<String, String> mp = new HashMap<String, String>();
         try {
             for (int i=0; i<10000; i++) {
                 mp.clear();
@@ -46,7 +46,7 @@ public class PipelineMain extends BaseTestCase {
     }
 
     private static void usePipeline(Jedis jedis) {
-        Map<String, String> mp = new HashMap<>();
+        Map<String, String> mp = new HashMap<String ,String >();
         try {
             Pipeline pl = jedis.pipelined();
             for (int i=0; i<10000; i++) {
