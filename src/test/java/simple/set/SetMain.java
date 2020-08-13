@@ -15,6 +15,14 @@ public class SetMain extends BaseTestCase {
         Long sadd = jedis.sadd("set", "a", "b");
         System.out.println(sadd);
 
+
+
+    }
+
+    @Test
+    public void ssetrr2() {
+        String set = jedis.set("key", "value", "a", "a", 60);
+        System.out.println(set);
     }
 
 }
