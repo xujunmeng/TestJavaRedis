@@ -2,7 +2,9 @@ package simple.脚本;
 
 import com.google.common.io.CharStreams;
 import org.junit.Test;
-import redis.clients.jedis.*;
+import redis.clients.jedis.Client;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Transaction;
 import simple.BaseTestCase;
 
 import java.io.IOException;
@@ -78,7 +80,7 @@ public class ScriptMain extends BaseTestCase{
         List<String> keys = Collections.singletonList(ip);
         List<String> argv = Arrays.asList(String.valueOf(limit), String.valueOf(timeout));
 
-        return 1 == (long) jedis.eval(loadScriptString("script.lua"), keys, argv);
+        return 1 == (Long) jedis.eval(loadScriptString("script.lua"), keys, argv);
     }
 
     /**
